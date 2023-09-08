@@ -53,3 +53,4 @@ describe('Team and createTeamIterator', () => {
 		expect(team.characters[0]).toBe(character);
 	});
 });
+

@@ -1,16 +1,19 @@
-export default class Team {
+class Team {
 	constructor() {
-		this.characters = []; // Здесь храним персонажей
+		this.characters = [];
 	}
 
 	addCharacter(character) {
-		this.characters.push(character); // Метод для добавления персонажа в команду
+		this.characters.push(character);
 	}
 
 	*[Symbol.iterator]() {
-		for (const character of this.characters) {
-			yield character; // Используем генератор для последовательного перебора персонажей
+		let index = 0;
+
+		while (index < this.characters.length) {
+			yield this.characters[index++];
 		}
 	}
 }
 
+export default Team;
