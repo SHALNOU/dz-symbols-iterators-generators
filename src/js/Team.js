@@ -7,12 +7,18 @@ class Team {
 		this.characters.push(character);
 	}
 
-	*[Symbol.iterator]() {
+	[Symbol.iterator]() {
 		let index = 0;
 
-		while (index < this.characters.length) {
-			yield this.characters[index++];
-		}
+		return {
+			next: () => {
+				if (index < this.characters.length) {
+					return { value: this.characters[index++], done: false };
+				} else {
+					return { done: true };
+				}
+			}
+		};
 	}
 }
 
